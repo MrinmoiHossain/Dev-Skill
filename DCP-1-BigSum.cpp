@@ -31,22 +31,15 @@ void divide(string s)
     reverse(b.begin(), b.end());
 
     string m = add(a, b);
-    reverse(m.begin(), m.end());
 
-    int pos = 0;
-    for(int i = 0; i < m.length(); i++){
-        if(m[i] =='0'){
-            continue;
-        }
-        else{
-            pos = i;
-            break;
-        }
+    int  l = m.length();
+    while(m[l - 1] == '0'){
+        m.erase(m.end() - 1);
+        l--;
     }
 
-    for(int i = pos; i < m.length(); i++)
-        cout << m[i];
-    cout << endl;
+    reverse(m.begin(), m.end());
+    cout << m << endl;
 }
 
 string add(string a, string b)
